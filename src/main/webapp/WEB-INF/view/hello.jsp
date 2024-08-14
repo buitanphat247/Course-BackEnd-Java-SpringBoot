@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +8,6 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>hello in jsp</h1>
+    <div>Web Application. Passed parameter :${message}</div>
   </body>
 </html>
