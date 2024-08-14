@@ -22,7 +22,7 @@ public class UserController {
     public String getHomePage() {
         String text = userService.handleHello();
         System.out.println("text: " + text);
-        return "home.html";
+        return "hello";
     }
 
 }

@@ -6,6 +6,6 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>hello worl in home html</h1>
+    <h1>hello in jsp</h1>
   </body>
 </html>
