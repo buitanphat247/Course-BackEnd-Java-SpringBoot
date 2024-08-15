@@ -4,10 +4,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    
 
     public String handleHello() {
-        return "hello service user in function handle hello";
+        return "tao chào mày";
 
     }
 }
