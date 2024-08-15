@@ -25,6 +25,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
+              <th>Id</th>
               <th>Email</th>
               <th>Username</th>
               <th>Password</th>
@@ -37,6 +38,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
           <tbody>
             <c:forEach var="user" items="${dataUser}">
               <tr>
+                <td>${user.id}</td>
                 <td>${user.email}</td>
                 <td>${user.username}</td>
                 <td>${user.password}</td>
@@ -44,7 +46,12 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                 <td>${user.phone}</td>
                 <td>${user.address}</td>
                 <td>
-                  <button type="button" class="btn btn-primary">Edit</button>
+                  <a
+                    href="/admin/user/${user.id}"
+                    type="button"
+                    class="btn btn-primary"
+                    >View</a
+                  >
                   <button type="button" class="btn btn-warning">Update</button>
                   <button type="button" class="btn btn-info">Remove</button>
                 </td>

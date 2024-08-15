@@ -15,8 +15,10 @@ import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.Optional;
 
 @SuppressWarnings("unused")
 @Controller
@@ -36,7 +38,7 @@ public class UserController {
     }
 
     @RequestMapping("/admin/user")
-    public String requestMethodName(Model model) {
+    public String getAllUser(Model model) {
         List<User> data = this.userService.findAll();
         model.addAttribute("dataUser", data);
         return "/admin/user/table";
@@ -52,5 +54,22 @@ public class UserController {
     public String createNewUserPOST(@ModelAttribute("user") User data) {
         this.userService.handleSaveUser(data);
         return "redirect:/admin/user";
+    }
+
+    @RequestMapping("/admin/user/{slug}")
+    public String getUserDetail(@PathVariable String slug, Model model) {
+        try {
+            // Convert the slug to a Long
+            Long id = Long.parseLong(slug);
+
+            // Fetch the user by ID
+            Optional<User> data = this.userService.findById(id);
+            model.addAttribute("dataDetail", data.get());
+            return "/admin/user/detail";
+        } catch (NumberFormatException e) {
+            // Handle the case where the slug is not a valid Long
+            model.addAttribute("error", "Invalid user ID format");
+            return "/admin/user/error"; // or some error page
+        }
     }
 }

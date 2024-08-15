@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -28,5 +29,8 @@ public class UserService {
         return this.userRepository.findByEmail(email);
     }
 
-   
+    public Optional<User> findById(Long id) {
+        return this.userRepository.findById(id);
+    }
+
 }
