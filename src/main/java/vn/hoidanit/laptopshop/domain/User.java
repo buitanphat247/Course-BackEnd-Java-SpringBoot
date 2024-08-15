@@ -1,12 +1,23 @@
 package vn.hoidanit.laptopshop.domain;
 
-public class User {
-    private String username, id, password, fullname, address, phone;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@SuppressWarnings("unused")
+@Entity
+public class User {
+    private String username, password, fullname, address, phone;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
     @Override
     public String toString() {
-        return "User [username=" + username + ", id=" + id + ", password=" + password + ", fullname=" + fullname
-                + ", address=" + address + ", phone=" + phone + "]";
+        return "User [username=" + username + ", password=" + password + ", fullname=" + fullname + ", address="
+                + address + ", phone=" + phone + ", id=" + id + "]";
     }
 
     public String getUsername() {
@@ -15,14 +26,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getPassword() {
@@ -55,6 +58,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }
