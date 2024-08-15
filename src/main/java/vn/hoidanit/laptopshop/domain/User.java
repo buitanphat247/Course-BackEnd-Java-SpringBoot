@@ -9,16 +9,10 @@ import jakarta.persistence.Table;
 @SuppressWarnings("unused")
 @Entity
 public class User {
-    private String username, password, fullname, address, phone;
+    private String username, password, fullname, address, phone, email;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
-    @Override
-    public String toString() {
-        return "User [username=" + username + ", password=" + password + ", fullname=" + fullname + ", address="
-                + address + ", phone=" + phone + ", id=" + id + "]";
-    }
 
     public String getUsername() {
         return username;
@@ -60,12 +54,18 @@ public class User {
         this.phone = phone;
     }
 
-    public long getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User [username=" + username + ", password=" + password + ", fullname=" + fullname + ", address="
+                + address + ", phone=" + phone + ", email=" + email + "]";
     }
 
 }
