@@ -1,0 +1,21 @@
+.btn-remove {
+  background: rgb(150, 150, 204);
+  color: white;
+  font-weight: 500;
+}
+.btn-edit {
+  background: rgb(134, 155, 107);
+  color: white;
+  font-weight: 500;
+}
+.btn-update {
+  background: rgb(75, 129, 133);
+  color: white;
+  font-weight: 500;
+}
+
+.between-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
