@@ -4,36 +4,31 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
-@SuppressWarnings("unused")
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String username, password, fullname, address, phone, email, avatar;
-    private long roleId;
+    // user many -> to one role
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    // One user -> many orders
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     public long getId() {
         return id;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(long roleId) {
-        this.roleId = roleId;
     }
 
     public void setId(long id) {
@@ -88,11 +83,35 @@ public class User {
         this.email = email;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public String toString() {
         return "User [id=" + id + ", username=" + username + ", password=" + password + ", fullname=" + fullname
-                + ", address=" + address + ", phone=" + phone + ", email=" + email + ", avatar=" + avatar + ", roleId="
-                + roleId + "]";
+                + ", address=" + address + ", phone=" + phone + ", email=" + email + ", avatar=" + avatar + ", role="
+                + role + ", orders=" + orders + "]";
     }
 
 }
