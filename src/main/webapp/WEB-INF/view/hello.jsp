@@ -14,8 +14,52 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     />
   </head>
   <body>
-    <div>Web Application. Passed parameter :${message}</div>
-
-    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    <div class="mx-5 mt-5">
+      <div class="d-flex flex-row justify-content-between my-md-3">
+        <h2>User Data</h2>
+        <a href="/admin/user/create" class="btn btn-create btn-primary">
+          Create User
+        </a>
+      </div>
+      <div>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Full Name</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach var="user" items="${dataUser}">
+              <tr>
+                <td>${user.id}</td>
+                <td>${user.email}</td>
+                <td>${user.username}</td>
+                <td>${user.password}</td>
+                <td>${user.fullname}</td>
+                <td>${user.phone}</td>
+                <td>${user.address}</td>
+                <td>
+                  <a
+                    href="/admin/user/${user.id}"
+                    type="button"
+                    class="btn btn-primary"
+                    >View</a
+                  >
+                  <button type="button" class="btn btn-warning">Update</button>
+                  <button type="button" class="btn btn-info">Remove</button>
+                </td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
