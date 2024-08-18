@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,9 +13,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name, image, detailDesc, shortDesc, factory, target;
+    private String name, image, factory, target;
     private double price;
     private long quantity, sold;
+    @Column(columnDefinition = "LONGTEXT")
+    private String detailDesc, shortDesc;
 
     @Override
     public String toString() {

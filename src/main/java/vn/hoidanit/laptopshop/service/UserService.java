@@ -64,17 +64,10 @@ public class UserService {
         user.setAddress(Data.getAddress());
         user.setPhone(Data.getPhone());
         user.setRole(this.getRoleIdByName(Data.getRole().getName()));
-        if (this.hasExtension(fileName)) {
+        if (fileStoreService.hasExtension(fileName)) {
             user.setAvatar(fileName);
         }
         return this.userRepository.save(user);
     }
 
-    private boolean hasExtension(String fileName) {
-        if (fileName != null && !fileName.trim().isEmpty()) {
-            int lastIndex = fileName.lastIndexOf('.');
-            return lastIndex > 0 && lastIndex < fileName.length() - 1;
-        }
-        return false;
-    }
 }

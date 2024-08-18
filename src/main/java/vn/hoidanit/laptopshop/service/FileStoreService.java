@@ -55,4 +55,12 @@ public class FileStoreService { // Đảm bảo tên lớp là FileStoreService
             throw new RuntimeException("Could not store file " + fileName + ". Please try again!", ex);
         }
     }
+
+    public boolean hasExtension(String fileName) {
+        if (fileName != null && !fileName.trim().isEmpty()) {
+            int lastIndex = fileName.lastIndexOf('.');
+            return lastIndex > 0 && lastIndex < fileName.length() - 1;
+        }
+        return false;
+    }
 }
