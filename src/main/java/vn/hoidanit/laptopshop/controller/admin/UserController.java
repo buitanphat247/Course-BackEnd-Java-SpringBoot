@@ -39,13 +39,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        List<User> data = this.userService.findAll();
-        model.addAttribute("dataUser", data);
-        return "hello";
-    }
-
     @RequestMapping("/admin/user")
     public String getAllUser(Model model) {
         List<User> data = this.userService.findAll();
