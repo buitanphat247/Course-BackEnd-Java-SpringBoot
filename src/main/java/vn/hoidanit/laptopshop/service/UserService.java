@@ -46,12 +46,12 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public List<User> findAllByEmail(String email) {
-        return this.userRepository.findByEmail(email);
-    }
-
     public Optional<User> findById(Long id) {
         return this.userRepository.findById(id);
+    }
+
+    public User getUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
     }
 
     public Role getRoleIdByName(String name) {
