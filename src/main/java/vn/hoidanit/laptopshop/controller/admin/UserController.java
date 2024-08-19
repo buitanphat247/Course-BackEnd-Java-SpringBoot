@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import vn.hoidanit.laptopshop.domain.Role;
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.domain.dto.RegisterDto;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.FileStoreService;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -93,4 +94,5 @@ public class UserController {
 
     }
 
+   
 }
