@@ -11,5 +11,4 @@ public class LaptopshopApplication {
 		SpringApplication.run(LaptopshopApplication.class, args);
 
 	}
-
 }
